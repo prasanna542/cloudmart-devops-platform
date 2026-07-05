@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: cloudmart-frontend
+  labels:
+    app: cloudmart-frontend
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: cloudmart-frontend
+
+  template:
+    metadata:
+      labels:
+        app: cloudmart-frontend
+
+    spec:
+      containers:
+        - name: frontend
+          image: cloudmart-devops-platform-frontend:latest
+          imagePullPolicy: Never
+
+          ports:
+            - containerPort: 80
