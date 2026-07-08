@@ -9,6 +9,12 @@ metadata:
 spec:
   replicas: 2
 
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+
   selector:
     matchLabels:
       app: cloudmart-backend
@@ -21,7 +27,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: cloudmart-devops-platform-backend:latest
+          image: cloudmart-devops-platform-backend:v2
           imagePullPolicy: Never
 
           ports:

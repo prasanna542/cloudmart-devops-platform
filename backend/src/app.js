@@ -23,9 +23,15 @@ app.use("/health", healthRoutes);
 app.use("/metrics", metricsRoutes);
 app.use("/api/products", productRoutes);
 
+// app.get("/", (req, res) => {
+//     res.json({
+//         message: "CloudMart API is running"
+//     });
+// });
+
 app.get("/", (req, res) => {
     res.json({
-        message: "CloudMart API is running"
+        message: "CloudMart API v2"
     });
 });
 
